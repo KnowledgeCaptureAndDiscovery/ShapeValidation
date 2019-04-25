@@ -1,0 +1,43 @@
+prefix mc: <https://w3id.org/mint/modelCatalog#>
+prefix soft: <http://ontosoft.org/software#>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix dc: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX onsw: <http://ontosoft.org/ontology/software/#>
+
+<Model> {
+    rdfs:label xsd:string ,
+    dc:description xsd:string ,
+    mc:hasModelCategory xsd:string,
+    soft:hasSoftwareVersion @<SoftwareVersion>
+}
+
+<SoftwareVersion> {
+    rdfs:label xsd:string ,
+    mc:hasConfiguration @<ModelConfig>
+}
+
+<ModelConfig> {
+    rdfs:label xsd:string ,
+    dc:description xsd:string ,
+    mc:hasInput @<DatasetSpecification> +,
+    mc:hasOutput @<DatasetSpecification> +,
+    mc:hasComponentLocation xsd:string
+}
+
+<DatasetSpecification> {
+    rdfs:label xsd:string ,
+    dc:description xsd:string,
+    mc:hasFormat xsd:string,
+    mc:hasPresentation @<VariablePresentation> +
+}
+
+<VariablePresentation> {
+    rdfs:label xsd:string ,
+    dc:description xsd:string ,
+    mc:hasShortName xsd:string,
+    mc:hasLongName xsd:string,
+    mc:usesUnit xsd:string,
+    mc:hasStandardVariable xsd:string
+}
+
