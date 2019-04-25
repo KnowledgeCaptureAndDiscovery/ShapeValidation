@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>MINT Model Catalog insertion form</title>
+
+    <!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Material icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        body {
+            padding-top: 1rem;
+        }
+
+        .starter-template {
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .form-style {
+            padding: 1.25rem 1.5rem;
+        }
+
+        .form-group-style {
+            padding: 0.5rem 0.0rem;
+        }
+
+        .io-var {
+            padding: inherit;
+        }
+
+        [data-role="dynamic-fields"]>.form-group-style+.form-group-style {
+            margin-top: 0.5em;
+        }
+
+        [data-role="dynamic-fields"]>.form-group-style [data-role="add"] {
+            display: none;
+        }
+
+        [data-role="dynamic-fields"]>.form-group-style:last-child [data-role="add"] {
+            display: inline-block;
+        }
+
+        [data-role="dynamic-fields"]>.form-group-style:last-child [data-role="remove"] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main role="main" class="container">
+        <div class="starter-template">
+            <h1>MINT Model Catalog Data Insertion Form</h1>
+            <p class="lead">This form enables user to insert data to MINT by creating RDF, validating it and then
+                inserting it into existing Knowledge Graph.</p>
+        </div>
+
+        <div class="form-style">
+            <p class="lead">Please enter data in <strong>all</strong> the fields below: </p>
+            <form id="model_form" class="border border-primary rounded">
+                <div class="form-style">
+                    <p class="h4">Model:</p>
+                    <div class="form-group-style">
+                        <!--Model-->
+                        <div class="form-group row">
+                            <label for="Model" class="col-sm-2 col-form-label">Name:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="Model" aria-describedby="modelHelp"
+                                    placeholder="Please enter model name (e.g., PIHM, CESM, Topoflow)" required>
+                            </div>
+                        </div>
+                        <!--Software version-->
+                        <div class="form-group row">
+                            <label for="SoftwareVersion" class="col-sm-2 col-form-label">Version:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="SoftwareVersion"
+                                    aria-describedby="softwareVersionHelp"
+                                    placeholder="Please provide the model version" required>
+                            </div>
+                        </div>
+                        <!--Model Description-->
+                        <div class="form-group row">
+                            <label for="ModelDescription" class="col-sm-2 col-form-label">Description:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ModelDescription"
+                                    aria-describedby="modelDescriptionHelp"
+                                    placeholder="Please provide a short description of the model" required>
+                            </div>
+                        </div>
+                        <!--Model Category-->
+                        <div class="form-group row">
+                            <label for="ModelCategory" class="col-sm-2 col-form-label">Category:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ModelCategory"
+                                    aria-describedby="modelCategoryHelp"
+                                    placeholder="Please provide a category for the model" required>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <p class="h4">Model Configuration:</p>
+                    <div class="form-group-style">
+                        <!--ModelConfig-->
+                        <div class="form-group row">
+                            <label for="ModelConfig" class="col-sm-2 col-form-label">Name:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ModelConfig"
+                                    aria-describedby="modelConfigHelp"
+                                    placeholder="Please provide a unique name for the configuration." required>
+                            </div>
+                        </div>
+                        <!--ModelConfig Description-->
+                        <div class="form-group row">
+                            <label for="ModelConfigDescription" class="col-sm-2 col-form-label">Description:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ModelConfigDescription"
+                                    aria-describedby="modelConfigDescriptionHelp"
+                                    placeholder="Please provide a short description of the model configuration"
+                                    required>
+                            </div>
+                        </div>
+                        <!--ModelConfig Component Location-->
+                        <div class="form-group row">
+                            <label for="ModelConfigComponentLocation" class="col-sm-2 col-form-label">Component
+                                Location:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="ModelConfigComponentLocation"
+                                    aria-describedby="modelConfigComponentLocationHelp"
+                                    placeholder="Please provide a component location string for the model configuration"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <p class="h4">Inputs and Outputs:</p><br>
+                    <div data-role="dynamic-fields">
+                        <div class="form-group-style">
+                            <div class="form-group row">
+                                <label for="ioType" class="col-sm-2 col-form-label">Type:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="ioType"
+                                        placeholder="Input (Enter 0) / Output (Enter 1)" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="io" class="col-sm-2 col-form-label">Label:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="io" placeholder="Please enter one i/o"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ioDescription" class="col-sm-2 col-form-label">Description:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="ioDescription"
+                                        placeholder="Please provide a short description for the i/o" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ioFormat" class="col-sm-2 col-form-label">Format:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="ioFormat"
+                                        placeholder="Please provide format for the i/o" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ioDimensionality" class="col-sm-2 col-form-label">Dimensionality:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="ioDimensionality"
+                                        placeholder="Please provide dimensionality for the i/o" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="ioVariables" class="col-sm-2 col-form-label">Variables:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control io-var" id="ioVariables"
+                                        placeholder="Please provide comma separated list of i/o variables" required>
+                                </div>
+                            </div>
+                            <button class="btn btn-danger" data-role="remove">
+                                <i class="material-icons" style="padding-top: 3.5pt">clear</i>
+                            </button>
+                            <button class="btn btn-success" data-role="add">
+                                <i class="material-icons" style="padding-top: 3pt">add</i>
+                            </button>
+                        </div>
+                    </div>
+                    <br>
+                    <button class="btn btn-primary" id="renderIoVarButton" type="button">Add Variables</button>
+                    <br><br>
+                    <p class="h5">I/O Variables:</p><br>
+                    <!--Variable Presentations-->
+                    <table class="table" id="ioVarTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Label</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Short Name</th>
+                                <th scope="col">Long Name</th>
+                                <th scope="col">Unit</th>
+                                <th scope="col">Standard Variable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-outline-danger">Reset Form</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!--Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <script src="create_ttl.js" type="text/javascript"></script>
+
+    <script>
+        $(function () {
+            var ioCnt = 1;
+            // Remove button click
+            $(document).on(
+                'click',
+                '[data-role="dynamic-fields"] > .form-group-style [data-role="remove"]',
+                function (e) {
+                    e.preventDefault();
+                    $(this).closest('.form-group-style').remove();
+                }
+            );
+            // Add button click
+            $(document).on(
+                'click',
+                '[data-role="dynamic-fields"] > .form-group-style [data-role="add"]',
+                function (e) {
+                    e.preventDefault();
+                    var container = $(this).closest('[data-role="dynamic-fields"]');
+                    new_field_group = container.children().filter('.form-group-style:first-child').clone();
+                    new_field_group.find('input').each(function () {
+                        $(this).val('');
+                    });
+                    container.append(new_field_group);
+                }
+            );
+            //Populate io variable table
+            $("#renderIoVarButton").click(function (e) {
+                e.preventDefault();
+                //Disable add and remove buttons
+                $("button[data-role='add']").prop('disabled', true);
+                $("button[data-role='remove']").prop('disabled', true);
+                var ioVars = [];
+                $('.io-var').each(function () {
+                    var vars = $(this).val().split(",");
+                    $.each(vars, function (index, value) {
+                        ioVars.push(value);
+                    });
+                });
+                $.each(ioVars, function (index, value) {
+                    $('#ioVarTable > tbody').append($('<tr>').append($('<td>').text(index + 1))
+                        .append($('<td>').append($(
+                                '<input>').attr('type', 'text').addClass('form-control')
+                            .attr('id', 'label').attr(
+                                'value',
+                                value).attr('required', 'true')))
+                        .append($('<td>').append($(
+                                '<input>').attr('type', 'text').addClass('form-control')
+                            .attr('id', 'description').attr(
+                                'placeholder',
+                                'Description').attr('required', 'true')))
+                        .append($('<td>').append($(
+                                '<input>').attr('type', 'text').addClass('form-control')
+                            .attr('id', 'shortName').attr(
+                                'placeholder',
+                                'Short Name').attr('required', 'true')))
+                        .append($('<td>').append($(
+                                '<input>').attr('type', 'text').addClass('form-control')
+                            .attr('id', 'longName').attr(
+                                'placeholder',
+                                'Long Name').attr('required', 'true')))
+                        .append($('<td>').append($(
+                                '<input>').attr('type', 'text').addClass('form-control')
+                            .attr('id', 'unit').attr(
+                                'placeholder',
+                                'Unit').attr('required', 'true')))
+                        .append($('<td>').append($(
+                                '<input>').attr('type', 'text').addClass('form-control')
+                            .attr('id', 'standardVariable').attr(
+                                'placeholder',
+                                'Standard Variable').attr('required', 'true'))));
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

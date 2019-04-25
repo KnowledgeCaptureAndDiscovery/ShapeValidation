@@ -1,0 +1,96 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+<https://w3id.org/mint/instance/MODEL1> a <https://w3id.org/mint/modelCatalog#Model> ;
+rdfs:label "model1" ;
+<http://ontosoft.org/software#hasSoftwareVersion> <https://w3id.org/mint/instance/model1_2.3> ;
+<http://purl.org/dc/terms/description> "this is a great model" ;
+<https://w3id.org/mint/modelCatalog#hasModelCategory> "cat1" .
+<https://w3id.org/mint/instance/model1_2.3> a <https://w3id.org/mint/modelCatalog#ModelVersion> , <http://ontosoft.org/software#SoftwareVersion> ;
+rdfs:label "model1 v2.3" ;
+<https://w3id.org/mint/modelCatalog#hasConfiguration> <https://w3id.org/mint/instance/config1> .
+<https://w3id.org/mint/instance/config1> a <https://w3id.org/mint/modelCatalog#ModelConfiguration> ;
+rdfs:label "config1" ;
+<http://purl.org/dc/terms/description> "this is config" ;
+<https://w3id.org/mint/modelCatalog#hasComponentLocation> "abccd-pqrs" .
+<https://w3id.org/mint/instance/io1> a <https://w3id.org/mint/modelCatalog#DatasetSpecification> ;
+rdfs:label "io1" ;
+<http://purl.org/dc/terms/description> "d1" ;
+<https://w3id.org/mint/modelCatalog#hasFormat> "form1" ;
+<https://w3id.org/mint/modelCatalog#hasDimensionality> "dim1" ;
+<https://w3id.org/mint/modelCatalog#hasPresentation><https://w3id.org/mint/instance/a> , <https://w3id.org/mint/instance/b> .
+<https://w3id.org/mint/instance/config1> <https://w3id.org/mint/modelCatalog#hasInput> <https://w3id.org/mint/instance/io1> .
+<https://w3id.org/mint/instance/io2> a <https://w3id.org/mint/modelCatalog#DatasetSpecification> ;
+rdfs:label "io2" ;
+<http://purl.org/dc/terms/description> "d2" ;
+<https://w3id.org/mint/modelCatalog#hasFormat> "form2" ;
+<https://w3id.org/mint/modelCatalog#hasDimensionality> "dim2" ;
+<https://w3id.org/mint/modelCatalog#hasPresentation><https://w3id.org/mint/instance/v2> .
+<https://w3id.org/mint/instance/config1> <https://w3id.org/mint/modelCatalog#hasOutput> <https://w3id.org/mint/instance/io2> .
+<https://w3id.org/mint/instance/a> a <https://w3id.org/mint/modelCatalog#VariablePresentation> ;
+rdfs:label "a" ;
+<http://purl.org/dc/terms/description> "dv1" ;
+<https://w3id.org/mint/modelCatalog#hasShortName> "sv1" ;
+<https://w3id.org/mint/modelCatalog#hasLongName> "lv1" ;
+<https://w3id.org/mint/modelCatalog#usesUnit> "uv1" ;
+<https://w3id.org/mint/modelCatalog#hasStandardVariable> "sdv1" .
+<https://w3id.org/mint/instance/b> a <https://w3id.org/mint/modelCatalog#VariablePresentation> ;
+rdfs:label "b" ;
+<http://purl.org/dc/terms/description> "dv2" ;
+<https://w3id.org/mint/modelCatalog#hasShortName> "sv2" ;
+<https://w3id.org/mint/modelCatalog#hasLongName> "lv2" ;
+<https://w3id.org/mint/modelCatalog#usesUnit> "uv2" ;
+<https://w3id.org/mint/modelCatalog#hasStandardVariable> "sdv2" .
+<https://w3id.org/mint/instance/v2> a <https://w3id.org/mint/modelCatalog#VariablePresentation> ;
+rdfs:label "v2" ;
+<http://purl.org/dc/terms/description> "dv3" ;
+<https://w3id.org/mint/modelCatalog#hasShortName> "sv3" ;
+<https://w3id.org/mint/modelCatalog#hasLongName> "lv3" ;
+<https://w3id.org/mint/modelCatalog#usesUnit> "uv3" ;
+<https://w3id.org/mint/modelCatalog#hasStandardVariable> "sdv3" .
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+<https://w3id.org/mint/instance/MODEL1> a <https://w3id.org/mint/modelCatalog#Model> ;
+rdfs:label "model1" ;
+<http://ontosoft.org/software#hasSoftwareVersion> <https://w3id.org/mint/instance/model1_2.3> ;
+<http://purl.org/dc/terms/description> "this is a great model" ;
+<https://w3id.org/mint/modelCatalog#hasModelCategory> "cat1" .
+<https://w3id.org/mint/instance/model1_2.3> a <https://w3id.org/mint/modelCatalog#ModelVersion> , <http://ontosoft.org/software#SoftwareVersion> ;
+rdfs:label "model1 v2.3" ;
+<https://w3id.org/mint/modelCatalog#hasConfiguration> <https://w3id.org/mint/instance/config1> .
+<https://w3id.org/mint/instance/config1> a <https://w3id.org/mint/modelCatalog#ModelConfiguration> ;
+rdfs:label "config1" ;
+<http://purl.org/dc/terms/description> "this is config" ;
+<https://w3id.org/mint/modelCatalog#hasComponentLocation> "abccd-pqrs" .
+<https://w3id.org/mint/instance/io1> a <https://w3id.org/mint/modelCatalog#DatasetSpecification> ;
+rdfs:label "io1" ;
+<http://purl.org/dc/terms/description> "d1" ;
+<https://w3id.org/mint/modelCatalog#hasFormat> "form1" ;
+<https://w3id.org/mint/modelCatalog#hasDimensionality> "dim1" ;
+<https://w3id.org/mint/modelCatalog#hasPresentation><https://w3id.org/mint/instance/a> , <https://w3id.org/mint/instance/b> .
+<https://w3id.org/mint/instance/config1> <https://w3id.org/mint/modelCatalog#hasInput> <https://w3id.org/mint/instance/io1> .
+<https://w3id.org/mint/instance/io2> a <https://w3id.org/mint/modelCatalog#DatasetSpecification> ;
+rdfs:label "io2" ;
+<http://purl.org/dc/terms/description> "d2" ;
+<https://w3id.org/mint/modelCatalog#hasFormat> "form2" ;
+<https://w3id.org/mint/modelCatalog#hasDimensionality> "dim2" ;
+<https://w3id.org/mint/modelCatalog#hasPresentation><https://w3id.org/mint/instance/v2> .
+<https://w3id.org/mint/instance/config1> <https://w3id.org/mint/modelCatalog#hasOutput> <https://w3id.org/mint/instance/io2> .
+<https://w3id.org/mint/instance/a> a <https://w3id.org/mint/modelCatalog#VariablePresentation> ;
+rdfs:label "a" ;
+<http://purl.org/dc/terms/description> "dv1" ;
+<https://w3id.org/mint/modelCatalog#hasShortName> "sv1" ;
+<https://w3id.org/mint/modelCatalog#hasLongName> "lv1" ;
+<https://w3id.org/mint/modelCatalog#usesUnit> "uv1" ;
+<https://w3id.org/mint/modelCatalog#hasStandardVariable> "sdv1" .
+<https://w3id.org/mint/instance/b> a <https://w3id.org/mint/modelCatalog#VariablePresentation> ;
+rdfs:label "b" ;
+<http://purl.org/dc/terms/description> "dv2" ;
+<https://w3id.org/mint/modelCatalog#hasShortName> "sv2" ;
+<https://w3id.org/mint/modelCatalog#hasLongName> "lv2" ;
+<https://w3id.org/mint/modelCatalog#usesUnit> "uv2" ;
+<https://w3id.org/mint/modelCatalog#hasStandardVariable> "sdv2" .
+<https://w3id.org/mint/instance/v2> a <https://w3id.org/mint/modelCatalog#VariablePresentation> ;
+rdfs:label "v2" ;
+<http://purl.org/dc/terms/description> "dv3" ;
+<https://w3id.org/mint/modelCatalog#hasShortName> "sv3" ;
+<https://w3id.org/mint/modelCatalog#hasLongName> "lv3" ;
+<https://w3id.org/mint/modelCatalog#usesUnit> "uv3" ;
+<https://w3id.org/mint/modelCatalog#hasStandardVariable> "sdv3" .
