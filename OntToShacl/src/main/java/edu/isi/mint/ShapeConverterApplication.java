@@ -20,7 +20,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//TODO This should be a REST API - Convert to Spring Boot MVC
 public class ShapeConverterApplication {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShapeConverterApplication.class);
     private static final Marker WTF_MARKER = MarkerFactory.getMarker("WTF");
@@ -29,7 +28,6 @@ public class ShapeConverterApplication {
 
     public static void main(String[] args) {
         try {
-            // TODO This file should be uploaded by consumer of the REST API
             Path path = Paths.get(".").toAbsolutePath().normalize();
             String ont = "file:" + path.toFile().getAbsolutePath() + "/src/main/resources/ontology.ttl";
 
@@ -45,59 +43,25 @@ public class ShapeConverterApplication {
                     NodeShape nodeShape = new NodeShape(r.getURI());
                     nodeShape.setLocalName(r.getLocalName() + "Shape");
                     classMap.put(r.getURI(), nodeShape);
-                    /*System.out.println("Next Resource: " + r.getURI());
-                    StmtIterator sIter = r.listProperties();
-                    System.out.println("Properties: ");
-                    while (sIter.hasNext()) {
-                        Statement s = sIter.nextStatement();
-                        System.out.println(s.getSubject() + " " + s.getPredicate() + " " + s.getObject());
-                    }*/
                 }
             }
 
             // Get All Properties
             Map<String, PropertyShape> propertyMap = new HashMap<>();
+
+            // Functional Properties
+            ResIterator funPropIter = model.listResourcesWithProperty(RDF.type, OWL.FunctionalProperty);
+            extractProperties(propertyMap, funPropIter, true);
+
+            // Object Properties
             ResIterator objPropIter = model.listResourcesWithProperty(RDF.type, OWL.ObjectProperty);
-            while (objPropIter.hasNext()) {
-                Resource r = objPropIter.nextResource();
-                if (null != r.getURI()) {
-                    PropertyShape propertyShape = new PropertyShape(r.getURI());
-                    propertyShape.setLocalName(r.getLocalName());
+            extractProperties(propertyMap, objPropIter, false);
 
-                    StmtIterator sIter = r.listProperties();
-                    while (sIter.hasNext()) {
-                        Statement s = sIter.nextStatement();
-                        if (s.getPredicate().equals(RDFS.domain)) {
-                            propertyShape.setDomain(s.getObject().asResource().getURI());
-                        } else if (s.getPredicate().equals(RDFS.range)) {
-                            propertyShape.setRange(s.getObject().toString());
-                        }
-                    }
-
-                    propertyMap.put(r.getURI(), propertyShape);
-                }
-            }
-
+            // Datatype Properties
             ResIterator dataPropIter = model.listResourcesWithProperty(RDF.type, OWL.DatatypeProperty);
-            while (dataPropIter.hasNext()) {
-                Resource r = dataPropIter.nextResource();
-                if (null != r.getURI()) {
-                    PropertyShape propertyShape = new PropertyShape(r.getURI());
-                    propertyShape.setLocalName(r.getLocalName());
+            extractProperties(propertyMap, dataPropIter, false);
 
-                    StmtIterator sIter = r.listProperties();
-                    while (sIter.hasNext()) {
-                        Statement s = sIter.nextStatement();
-                        if (s.getPredicate().equals(RDFS.domain)) {
-                            propertyShape.setDomain(s.getObject().asResource().getURI());
-                        } else if (s.getPredicate().equals(RDFS.range)) {
-                            propertyShape.setRange(s.getObject().toString());
-                        }
-                    }
-                    propertyMap.put(r.getURI(), propertyShape);
-                }
-            }
-
+            // Create Class - Property Association
             for (Map.Entry<String, PropertyShape> entry : propertyMap.entrySet()) {
                 String domain = entry.getValue().getDomain();
                 if (null != domain) {
@@ -135,6 +99,36 @@ public class ShapeConverterApplication {
             writer.close();
         } catch (Throwable t) {
             LOGGER.error(WTF_MARKER, t.getMessage(), t);
+        }
+    }
+
+    private static void extractProperties(Map<String, PropertyShape> propertyMap, ResIterator iter, boolean isFunctional) {
+        while (iter.hasNext()) {
+            Resource r = iter.nextResource();
+            if (null != r.getURI()) {
+                PropertyShape propertyShape = new PropertyShape(r.getURI());
+                propertyShape.setLocalName(r.getLocalName());
+
+                StmtIterator sIter = r.listProperties();
+                while (sIter.hasNext()) {
+                    Statement s = sIter.nextStatement();
+                    if (s.getPredicate().equals(RDFS.domain)) {
+                        propertyShape.setDomain(s.getObject().asResource().getURI());
+                    } else if (s.getPredicate().equals(RDFS.range)) {
+                        propertyShape.setRange(s.getObject().toString());
+                    } else if (s.getPredicate().equals(OWL.minCardinality)) {
+                        propertyShape.setMinCardinality(s.getObject().asLiteral().getInt());
+                    } else if (s.getPredicate().equals(OWL.maxCardinality)) {
+                        propertyShape.setMaxCardinality(s.getObject().asLiteral().getInt());
+                    }
+                }
+
+                if (isFunctional) {
+                    propertyShape.setMaxCardinality(1);
+                }
+
+                propertyMap.put(r.getURI(), propertyShape);
+            }
         }
     }
 }
