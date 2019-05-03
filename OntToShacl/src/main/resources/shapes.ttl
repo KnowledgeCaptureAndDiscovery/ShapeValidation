@@ -1,0 +1,136 @@
+<http://example.com/ns#TheoryBasedModelShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#TheoryBasedModel> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#DatasetSpecificationShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#DatasetSpecification> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasFileStructure> ; <http://www.w3.org/ns/shacl#class> <https://w3id.org/mint/modelCatalog#DataStructureDefinition> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasDimensionality> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#int> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasFormat> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> ; ] .
+
+<http://example.com/ns#DataStructureDefinitionShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#DataStructureDefinition> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#VariablePresentationShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#VariablePresentation> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasShortName> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasStandardVariable> ; <http://www.w3.org/ns/shacl#class> <https://w3id.org/mint/modelCatalog#StandardVariable> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasLongName> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasRelevanceLevel> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#positiveInteger> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasDataset> ; <http://www.w3.org/ns/shacl#class> <810d5c972f8a6f6d9ce7ea49aa770639> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] .
+
+<http://example.com/ns#GSNVariableShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#GSNVariable> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#DatasetShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <http://www.w3.org/ns/dcat#Dataset> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#VariableShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#Variable> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#EmpiricalModelShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#EmpiricalModel> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#VariableShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <http://www.geoscienceontology.org/geo-upper#Variable> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#ModelShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#Model> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasModelCategory> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> ; ] .
+
+<http://example.com/ns#ModuleShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#Module> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#DatasetShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <http://schema.org/Dataset> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#SoftwareVersionShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <http://ontosoft.org/software#SoftwareVersion> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <http://ontosoft.org/software#hasVersionId> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> ; ] .
+
+<http://example.com/ns#ConceptShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <http://www.w3.org/2004/02/skos/core#Concept> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#ICASAVariableShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#ICASAVariable> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#SoftwareShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <http://ontosoft.org/software#Software> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <http://ontosoft.org/software#hasSoftwareVersion> ; <http://www.w3.org/ns/shacl#class> <http://ontosoft.org/software#SoftwareVersion> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] .
+
+<http://example.com/ns#UnitShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <http://qudt.org/schema/qudt/Unit> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#ModelConfigurationShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#ModelConfiguration> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasOutput> ; <http://www.w3.org/ns/shacl#class> <https://w3id.org/mint/modelCatalog#DatasetSpecification> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasInput> ; <http://www.w3.org/ns/shacl#class> <https://w3id.org/mint/modelCatalog#DatasetSpecification> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasTimeInterval> ; <http://www.w3.org/ns/shacl#class> <https://w3id.org/mint/modelCatalog#TimeInterval> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasCAG> ; <http://www.w3.org/ns/shacl#class> <https://w3id.org/mint/modelCatalog#CAG> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasModule> ; <http://www.w3.org/ns/shacl#class> <https://w3id.org/mint/modelCatalog#Module> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasParameter> ; <http://www.w3.org/ns/shacl#class> <https://w3id.org/mint/modelCatalog#Parameter> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasProcess> ; <http://www.w3.org/ns/shacl#class> <https://w3id.org/mint/modelCatalog#Process> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] .
+
+<http://example.com/ns#HybridModelShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#HybridModel> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#ContainerShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <http://ontosoft.org/software#Container> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <http://ontosoft.org/software#hasIdentifier> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <http://ontosoft.org/software#hasInstallationInstructions> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <http://ontosoft.org/software#hasExecutionCommand> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> ; ] .
+
+<http://example.com/ns#ParameterShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#Parameter> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasDataType> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#string> ; ] .
+
+<http://example.com/ns#ProcessShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#Process> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#ModelVersionShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#ModelVersion> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasConfiguration> ; <http://www.w3.org/ns/shacl#class> <https://w3id.org/mint/modelCatalog#ModelConfiguration> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] .
+
+<http://example.com/ns#DatasetShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/dataCatalog#Dataset> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#TimeIntervalShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#TimeInterval> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasValue> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#float> ; ] .
+
+<http://example.com/ns#UnitShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#Unit> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#PlaceShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <http://schema.org/Place> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#CAGShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#CAG> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasPart> ; <http://www.w3.org/ns/shacl#class> <93e5576805a10d67ce50296b6b8edcec> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] .
+
+<http://example.com/ns#StandardVariableShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#StandardVariable> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#GridShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <https://w3id.org/mint/modelCatalog#Grid> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> .
+
+<http://example.com/ns#FunctionShape> a <http://www.w3.org/ns/shacl#NodeShape> ;
+<http://www.w3.org/ns/shacl#targetClass> <http://ontosoft.org/software#Function> ;
+<http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ;
+<http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasSupportScriptLocation> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#anyURI> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <https://w3id.org/mint/modelCatalog#hasComponentLocation> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#anyURI> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <http://ontosoft.org/software#hasImplementationScriptLocation> ; <http://www.w3.org/ns/shacl#datatype> <http://www.w3.org/2001/XMLSchema#anyURI> ; ] ; <http://www.w3.org/ns/shacl#property> [ <http://www.w3.org/ns/shacl#path> <http://ontosoft.org/software#hasContainer> ; <http://www.w3.org/ns/shacl#class> <http://ontosoft.org/software#Container> ; <http://www.w3.org/ns/shacl#nodeKind> <http://www.w3.org/ns/shacl#IRI> ; ] .
+
