@@ -8,13 +8,9 @@ import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.Marker;
-import org.slf4j.MarkerFactory;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,17 +18,22 @@ import java.util.Map;
 
 public class ShapeConverterApplication {
     private static final Logger LOGGER = LoggerFactory.getLogger(ShapeConverterApplication.class);
-    private static final Marker WTF_MARKER = MarkerFactory.getMarker("WTF");
     private static final String PREFIX = "http://example.com/ns#";
     private static final String SHACL = "http://www.w3.org/ns/shacl#";
 
     public static void main(String[] args) {
         try {
-            Path path = Paths.get(".").toAbsolutePath().normalize();
-            String ont = "file:" + path.toFile().getAbsolutePath() + "/src/main/resources/ontology.ttl";
+            if (args.length < 2) {
+                LOGGER.error("Not Enough Arguments...\n" +
+                        "Please provide at least 2 arguments -\n" +
+                        "1. Absolute path of OWL ontology as input\n" +
+                        "2. Absolute path of the directory where you want the output\n" +
+                        "Exiting...");
+                System.exit(1);
+            }
 
             Model model = ModelFactory.createDefaultModel();
-            model.read(ont);
+            model.read("file:" + args[0]);
 
             // Get all Classes
             Map<String, NodeShape> classMap = new HashMap<>();
@@ -77,7 +78,13 @@ public class ShapeConverterApplication {
             }
 
             // Write to Shacl file
-            String shapePath = path.toFile().getAbsolutePath() + "/src/main/resources/shapes.ttl";
+            String shapePath;
+            if (args[1].charAt(args[1].length() - 1) != '/') {
+                shapePath = args[1] + "/shapes.ttl";
+            } else {
+                shapePath = args[1] + "shapes.ttl";
+            }
+
             File shapeFile = new File(shapePath);
             if (!shapeFile.exists()) {
                 shapeFile.createNewFile();
@@ -97,8 +104,9 @@ public class ShapeConverterApplication {
                 }
             }
             writer.close();
+            LOGGER.info("Output written as: " + shapePath);
         } catch (Throwable t) {
-            LOGGER.error(WTF_MARKER, t.getMessage(), t);
+            LOGGER.error(t.getMessage(), t);
         }
     }
 
